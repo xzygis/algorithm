@@ -2,6 +2,7 @@ package _35_clone_complex_list
 
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -58,5 +59,25 @@ func assert(t *testing.T, origin *ComplexListNode, got *ComplexListNode) {
 		}
 		head = head.next
 		newHead = newHead.next
+	}
+}
+
+func printComplexList(head *ComplexListNode) {
+	for head != nil {
+		printComplexListNode(head)
+		head = head.next
+	}
+	fmt.Println()
+}
+
+func printComplexListNode(node *ComplexListNode) {
+	if node.next != nil && node.sibling != nil {
+		fmt.Printf("Node(%d,%d,%d)", node.val, node.next.val, node.sibling.val)
+	} else if node.next != nil {
+		fmt.Printf("Node(%d,%d,-)", node.val, node.next.val)
+	} else if node.sibling != nil {
+		fmt.Printf("Node(%d,-,%d)", node.val, node.sibling.val)
+	} else {
+		fmt.Printf("Node(%d,-,-)", node.val)
 	}
 }

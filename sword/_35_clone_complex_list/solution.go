@@ -2,10 +2,9 @@ package _35_clone_complex_list
 
 /*
 面试题35：复杂链表的赋值
- */
+*/
 
 import (
-	"fmt"
 	"math/rand"
 )
 
@@ -102,24 +101,4 @@ func createComplexList(len int) *ComplexListNode {
 		p = p.next
 	}
 	return head
-}
-
-func printComplexList(head *ComplexListNode) {
-	for head != nil {
-		printComplexListNode(head)
-		head = head.next
-	}
-	fmt.Println()
-}
-
-func printComplexListNode(node *ComplexListNode) {
-	if node.next != nil && node.sibling != nil {
-		fmt.Printf("Node(%d,%d,%d)", node.val, node.next.val, node.sibling.val)
-	} else if node.next != nil {
-		fmt.Printf("Node(%d,%d,-)", node.val, node.next.val)
-	} else if node.sibling != nil {
-		fmt.Printf("Node(%d,-,%d)", node.val, node.sibling.val)
-	} else {
-		fmt.Printf("Node(%d,-,-)", node.val)
-	}
 }
