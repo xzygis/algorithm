@@ -1,10 +1,8 @@
 package _103_binary_tree_zigzag_level_order_traversal
 
-type TreeNode struct {
-	Val int
-	Left *TreeNode
-	Right *TreeNode
-}
+import (
+	. "github.com/xzygis/algorithm/leetcode/utils"
+)
 
 /**
 * Definition for a binary tree node.
