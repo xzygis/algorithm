@@ -1,3 +1,5 @@
 # Algorithm
 
-LeetCode solutions!
+LeetCode solutions! 
+
+GitBook：https://xzygis.gitbook.io/algorithm
