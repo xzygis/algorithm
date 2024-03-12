@@ -2,6 +2,7 @@ package _2129_capitalize_the_title
 
 import "strings"
 
+// Easy
 func capitalizeTitle(title string) string {
 	words := strings.Split(title, " ")
 	var res []string

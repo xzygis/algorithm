@@ -1,8 +1,5 @@
 package _3_longest_substring_without_repeating_characters
 
-// abcabcbb
-// dvdf
-// abba
 func lengthOfLongestSubstring(s string) int {
 	m := map[byte]int{}
 	l := 0
