@@ -15,6 +15,10 @@ type TreeNode struct {
 func ParseLevelTree(treeStr string) *TreeNode {
 	treeStr = strings.TrimPrefix(treeStr, "[")
 	treeStr = strings.TrimSuffix(treeStr, "]")
+	if treeStr == "" {
+		return nil
+	}
+
 	vals := strings.Split(treeStr, ",")
 	nodes := createNodes(vals)
 	return createTree(nodes)
@@ -51,10 +55,6 @@ func createTree(nodes []*TreeNode) *TreeNode {
 }
 
 func createNodes(vals []string) []*TreeNode {
-	if len(vals) == 0 {
-		return nil
-	}
-
 	nodes := make([]*TreeNode, 0, len(vals))
 	for _, val := range vals {
 		if val == "null" {

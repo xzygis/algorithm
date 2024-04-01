@@ -36,7 +36,7 @@ func Test_rightSideView(t *testing.T) {
 			args: args{
 				root: utils.ParseLevelTree("[]"),
 			},
-			want: []int{},
+			want: nil,
 		},
 	}
 	for _, tt := range tests {
