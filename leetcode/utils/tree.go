@@ -6,12 +6,12 @@ import (
 )
 
 type TreeNode struct {
-	Val int
-	Left *TreeNode
+	Val   int
+	Left  *TreeNode
 	Right *TreeNode
 }
 
-//[3,9,20,null,null,15,7]
+// [3,9,20,null,null,15,7]
 func ParseLevelTree(treeStr string) *TreeNode {
 	treeStr = strings.TrimPrefix(treeStr, "[")
 	treeStr = strings.TrimSuffix(treeStr, "]")
@@ -51,6 +51,10 @@ func createTree(nodes []*TreeNode) *TreeNode {
 }
 
 func createNodes(vals []string) []*TreeNode {
+	if len(vals) == 0 {
+		return nil
+	}
+
 	nodes := make([]*TreeNode, 0, len(vals))
 	for _, val := range vals {
 		if val == "null" {
