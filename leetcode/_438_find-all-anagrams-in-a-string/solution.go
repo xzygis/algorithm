@@ -4,24 +4,27 @@ func findAnagrams(s string, p string) []int {
 	if len(s) < len(p) {
 		return nil
 	}
-	var ans []int
-	var sCount, pCount [26]int
+
+	var res []int
+	var pCount [26]int
+	var sCount [26]int
 	for i, ch := range p {
 		pCount[ch-'a']++
 		sCount[s[i]-'a']++
 	}
 
-	if sCount == pCount {
-		ans = append(ans, 0)
+	if pCount == sCount {
+		res = append(res, 0)
 	}
 
 	for i, ch := range s[:len(s)-len(p)] {
 		sCount[ch-'a']--
 		sCount[s[i+len(p)]-'a']++
+
 		if sCount == pCount {
-			ans = append(ans, i+1)
+			res = append(res, i+1)
 		}
 	}
 
-	return ans
+	return res
 }
