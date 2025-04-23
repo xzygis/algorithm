@@ -1,6 +1,23 @@
 package _238_product_of_array_except_self
 
 func productExceptSelf(nums []int) []int {
+	ans := make([]int, len(nums))
+	ans[0] = nums[0]
+	for i := 1; i < len(nums); i++ {
+		ans[i] = ans[i-1] * nums[i]
+	}
+
+	right := 1
+	for i := len(nums) - 1; i > 0; i-- {
+		ans[i] = ans[i-1] * right
+		right *= nums[i]
+	}
+	ans[0] = right
+
+	return ans
+}
+
+func productExceptSelfV1(nums []int) []int {
 	left := make([]int, len(nums))
 	left[0] = nums[0]
 	right := make([]int, len(nums))
