@@ -1,4 +1,4 @@
-package _54_spiral_matrix
+package _48_rotate_image
 
 // [i][j] => [j][col-i-1]
 // [i][j] = [col-j-1][i]

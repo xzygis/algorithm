@@ -1,4 +1,4 @@
-package _54_spiral_matrix
+package _48_rotate_image
 
 import (
 	"testing"
