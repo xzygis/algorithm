@@ -16,16 +16,26 @@ func reverseList(head *ListNode) *ListNode {
 		return head
 	}
 
-	preHead := head
-	cur := head.Next
+	var newHead *ListNode
+	cur := head
 	for cur != nil {
-		next := cur.Next //暂存下一个节点
-		cur.Next = preHead
-		preHead = cur
+		next := cur.Next
+		cur.Next = newHead
+		newHead = cur
 		cur = next
 	}
-	head.Next = nil
-	return preHead
+	return newHead
+
+	//preHead := head
+	//cur := head.Next
+	//for cur != nil {
+	//	next := cur.Next //暂存下一个节点
+	//	cur.Next = preHead
+	//	preHead = cur
+	//	cur = next
+	//}
+	//head.Next = nil
+	//return preHead
 }
 
 func reverseListV1(head *ListNode) *ListNode {

@@ -1,5 +1,10 @@
 package utils
 
+import (
+	"fmt"
+	"strings"
+)
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -34,4 +39,13 @@ func SliceEquals(l1 *ListNode, l2 *ListNode) bool {
 	}
 
 	return true
+}
+
+func PrintList(head *ListNode) {
+	sb := strings.Builder{}
+	for head != nil {
+		sb.WriteString(fmt.Sprintf("%v ", head.Val))
+		head = head.Next
+	}
+	println(sb.String())
 }
