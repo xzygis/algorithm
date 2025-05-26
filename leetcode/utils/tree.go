@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
@@ -65,4 +66,40 @@ func createNodes(vals []string) []*TreeNode {
 		}
 	}
 	return nodes
+}
+
+func PrintNodes(nodes []*TreeNode) {
+	sb := strings.Builder{}
+	for _, node := range nodes {
+		sb.WriteString(fmt.Sprintf("%v ", node.Val))
+	}
+	println(sb.String())
+}
+
+func PrintTree(root *TreeNode) {
+	if root == nil {
+		return
+	}
+
+	sb := strings.Builder{}
+	queue := []*TreeNode{root}
+	for len(queue) > 0 {
+		size := len(queue)
+		for size > 0 {
+			node := queue[0]
+			queue = queue[1:]
+			sb.WriteString(fmt.Sprintf("%v ", node.Val))
+			if node.Left != nil {
+				queue = append(queue, node.Left)
+			}
+
+			if node.Right != nil {
+				queue = append(queue, node.Right)
+			}
+			size--
+		}
+		sb.WriteString("\n")
+	}
+
+	println(sb.String())
 }
