@@ -103,3 +103,19 @@ func PrintTree(root *TreeNode) {
 
 	println(sb.String())
 }
+
+func TreeEquals(root1 *TreeNode, root2 *TreeNode) bool {
+	if root1 == nil && root2 == nil {
+		return true
+	}
+
+	if root1 == nil {
+		return false
+	}
+
+	if root2 == nil {
+		return false
+	}
+
+	return TreeEquals(root1.Left, root2.Left) && TreeEquals(root1.Right, root2.Right) && root1.Val == root2.Val
+}
