@@ -58,19 +58,28 @@ func createTree(nodes []*TreeNode) *TreeNode {
 func createNodes(vals []string) []*TreeNode {
 	nodes := make([]*TreeNode, 0, len(vals))
 	for _, val := range vals {
+		val := strings.TrimSpace(val)
 		if val == "null" {
 			nodes = append(nodes, nil)
 		} else {
-			num, _ := strconv.Atoi(val)
+			num, err := strconv.Atoi(val)
+			if err != nil {
+				panic(err)
+			}
 			nodes = append(nodes, &TreeNode{Val: num})
 		}
 	}
+
 	return nodes
 }
 
 func PrintNodes(nodes []*TreeNode) {
 	sb := strings.Builder{}
 	for _, node := range nodes {
+		if node == nil {
+			sb.WriteString("null ")
+			continue
+		}
 		sb.WriteString(fmt.Sprintf("%v ", node.Val))
 	}
 	println(sb.String())
