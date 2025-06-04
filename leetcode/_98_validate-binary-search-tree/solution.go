@@ -16,16 +16,16 @@ import (
  */
 
 func isValidBST(root *TreeNode) bool {
-	var q []*TreeNode
+	var stack []*TreeNode
 	var last = math.MinInt
-	for root != nil || len(q) > 0 {
+	for root != nil || len(stack) > 0 {
 		for root != nil {
-			q = append(q, root)
+			stack = append(stack, root)
 			root = root.Left
 		}
 
-		root = q[len(q)-1]
-		q = q[0 : len(q)-1]
+		root = stack[len(stack)-1]
+		stack = stack[0 : len(stack)-1]
 		if root.Val <= last {
 			return false
 		}
