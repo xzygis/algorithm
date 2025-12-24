@@ -37,9 +37,9 @@ func minDistance(word1 string, word2 string) int {
 }
 
 func min(a, b, c int) int {
-	if a < b && a < c {
+	if a <= b && a <= c {
 		return a
-	} else if b < a && b < c {
+	} else if b <= a && b <= c {
 		return b
 	} else {
 		return c
