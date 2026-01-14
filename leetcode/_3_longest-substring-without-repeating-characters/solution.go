@@ -6,8 +6,8 @@ func lengthOfLongestSubstring(s string) int {
 	r := 0
 	ans := 0
 	for r < len(s) {
-		if _, ok := m[s[r]]; ok {
-			l = max(l, m[s[r]]+1)
+		if lastPos, ok := m[s[r]]; ok && lastPos >= l {
+			l = max(l, lastPos+1)
 		}
 
 		m[s[r]] = r
